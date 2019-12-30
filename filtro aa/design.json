@@ -1,0 +1,96 @@
+{
+  "Name": "Filter Wizard Design",
+  "Description": "Filter Wizard Design",
+  "Tool": "FW",
+  "Version": "1",
+  "Design": {
+    "visitedTabs": [
+      "filter-type",
+      "specifications",
+      "components",
+      "tolerances",
+      "next-steps"
+    ],
+    "filterType": "lowPass",
+    "specifications": {
+      "gain": 0,
+      "gainUnit": "dB",
+      "passbandAttenuation": -3,
+      "passbandFrequency": 500,
+      "stopbandAttenuation": -40,
+      "stopbandFrequency": 600,
+      "filterResponseValue": 3,
+      "filterResponseSlider": "0",
+      "centerFrequency": null
+    },
+    "components": {
+      "vsPlus": 5,
+      "vsMinus": 0,
+      "optimization": "RecommendedSpecificComponents",
+      "optimizationPreference": "specific",
+      "compensateForGbw": false,
+      "stages": [
+        {
+          "stageLetter": "A",
+          "componentSizing": 108,
+          "gain": -1,
+          "gainEnabled": false,
+          "implementation": "firstOrder",
+          "opAmps": "AD8617"
+        },
+        {
+          "stageLetter": "B",
+          "componentSizing": 95,
+          "gain": -1,
+          "gainEnabled": false,
+          "implementation": "sallenKey",
+          "opAmps": "AD8617"
+        },
+        {
+          "stageLetter": "C",
+          "componentSizing": 119,
+          "gain": -1,
+          "gainEnabled": false,
+          "implementation": "sallenKey",
+          "opAmps": "AD8617"
+        },
+        {
+          "stageLetter": "D",
+          "componentSizing": 146,
+          "gain": -1,
+          "gainEnabled": false,
+          "implementation": "sallenKey",
+          "opAmps": "AD8617"
+        },
+        {
+          "stageLetter": "E",
+          "componentSizing": 143,
+          "gain": -1,
+          "gainEnabled": false,
+          "implementation": "sallenKey",
+          "opAmps": "AD8617"
+        }
+      ],
+      "recommendedAmps": [],
+      "sortOrder": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "tolerances": {
+      "resistorTolerance": "1%",
+      "capacitorTolerance": "5%",
+      "inductorTolerance": "5%",
+      "opAmpGbwTolerance": "20%",
+      "resistorPreferredSeries": "E96",
+      "capacitorPreferredSeries": "E24",
+      "inductorPreferredSeries": "E12"
+    },
+    "nextSteps": {}
+  },
+  "CreatedDate": "2019-12-30 11:36:10 AM",
+  "UpdatedDate": "2019-12-30 11:36:10 AM"
+}
