@@ -1,30 +1,28 @@
 #include "arduinoFFT.h"
 #define PIN_TEST 8
 //el sampleo esta razonablemente bien, lo probe con matlab y una senal de 2.5 k estubo bien.
-#define MAX_RESULTS  512
+#define SAMPLES_AMAUNT  512
 arduinoFFT FFT = arduinoFFT();
 //fyente https://github.com/kosme/arduinoFFT
 const byte adcPin = 0;  // A0
 
-volatile double results [MAX_RESULTS];
-//volatile double img [MAX_RESULTS];
-volatile int resultNumber;
+volatile double voltage [SAMPLES_AMAUNT];
+volatile double current [SAMPLES_AMAUNT];
+//volatile double img [SAMPLES_AMAUNT];
+volatile unsigned int resultNumber;
 //fuente: https://blog.wildan.us/2017/11/03/arduino-fast-er-sampling-rate/
 // ADC complete ISR
+double * samplesMeas[]={voltage,current};
+
 ISR (ADC_vect)
   {
-  if (resultNumber >= MAX_RESULTS)
+  if (resultNumber >= 2*SAMPLES_AMAUNT)//uso el dbole de la cantidad de muestras xq estoy sampleando dos canales
     ADCSRA = 0;  // turn off ADC
   else{
-    //digitalWrite(PIN_TEST,HIGH);
-    results[resultNumber] = ADC;//genera mucho gitter esta operacion a 50k de samplink rate
-    //img[resultNumber]=0;
-
+    (samplesMeas[resultNumber&1])[(resultNumber-(resultNumber&1))>>1]=ADC;//resultNumber pares son mediciones de voltaje, despues  (resultNumber-(resultNumber&1))>>1 corrige el indice de cada arreglo
     resultNumber++;
-      //results [resultNumber++]=(ADCH << 8) | ADCL;// a 25k tiene jitter pero menos
-    
-    //digitalWrite(PIN_TEST,LOW);
-  }  // end of ADC_vect
+    ADMUX   = bit (REFS0) | ((resultNumber&1) & 7);//selecciono los mux
+  }  
   }
   
 EMPTY_INTERRUPT (TIMER1_COMPB_vect);
@@ -40,8 +38,8 @@ void setup ()
   TCNT1   = 0;
   TCCR1B  = bit (CS11) | bit (WGM12);  // CTC, prescaler of 8
   TIMSK1  = bit (OCIE1B); 
-  OCR1A   = 380;    
-  OCR1B   = 380; // 39 20 uS - sampling frequency 50 kHz
+  OCR1A   = 190;    
+  OCR1B   = 190; //frecuencia de sampleo del adc 10.26KHz
 
   ADCSRA  =  bit (ADEN) | bit (ADIE) | bit (ADIF); // turn ADC on, want interrupt on completion
   ADCSRA |= bit (ADPS2);  // Prescaler of 16
@@ -51,18 +49,30 @@ void setup ()
 }
 
 void loop () {
-   double img [MAX_RESULTS];
-  for (int i = 0; i < MAX_RESULTS; i++)
+   double img [SAMPLES_AMAUNT];
+  for (int i = 0; i < SAMPLES_AMAUNT; i++)
   {
     img[i]=0;
   }
-  while (resultNumber < MAX_RESULTS) { }
-  FFT.Windowing(results, MAX_RESULTS, FFT_WIN_TYP_HAMMING, FFT_FORWARD);
-  FFT.Compute(results, img, MAX_RESULTS, FFT_FORWARD);
-  FFT.ComplexToMagnitude(results, img, MAX_RESULTS);
-  for (int i = 0; i < MAX_RESULTS; i++)
+  while (resultNumber < 2*SAMPLES_AMAUNT) { }//sampleo de dos canales
+  FFT.Windowing(voltage, SAMPLES_AMAUNT, FFT_WIN_TYP_HAMMING, FFT_FORWARD);//fft para la tension
+  FFT.Compute(voltage, img, SAMPLES_AMAUNT, FFT_FORWARD);
+  FFT.ComplexToMagnitude(voltage, img, SAMPLES_AMAUNT);
+
+  for (int i = 0; i < SAMPLES_AMAUNT; i++)
   {
-    Serial.println (results[i]);
+    img[i]=0;
+  }
+  FFT.Windowing(current, SAMPLES_AMAUNT, FFT_WIN_TYP_HAMMING, FFT_FORWARD);//fft para la corriente
+  FFT.Compute(current, img, SAMPLES_AMAUNT, FFT_FORWARD);
+  FFT.ComplexToMagnitude(current, img, SAMPLES_AMAUNT);
+  
+  
+  for (int i = 0; i < SAMPLES_AMAUNT; i++)
+  {
+    Serial.print(voltage[i]);
+    Serial.print(" ");
+    Serial.println(current[i]);
     //Serial.println (i+0.1);
   }
  while(1);

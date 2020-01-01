@@ -1,0 +1,127 @@
+Change Component Designator: OldDesignator=ANALOG NewDesignator=AD_L
+Change Component Designator: OldDesignator=PWM NewDesignator=PWM_L
+Added Component: Designator=C1(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C2(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C3(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C4(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C5(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=corriente?(BORNERA2)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R5(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R6(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R7(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R8(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R9(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R10(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R11(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R12(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=TL084(DIP14)
+Add component. Clean all parameters for all variants
+Added Component: Designator=trafo?(BORNERA2)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=AD0 Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=AD1 Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=5V Pin=C5-2
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=5V Pin=R9-2
+Added Pin To Net: NetName=GND Pin=R10-1
+Added Pin To Net: NetName=5V Pin=R11-2
+Added Pin To Net: NetName=GND Pin=R12-1
+Added Pin To Net: NetName=AD0 Pin=TL084-1
+Added Pin To Net: NetName=AD0 Pin=TL084-2
+Added Pin To Net: NetName=5V Pin=TL084-4
+Added Pin To Net: NetName=AD1 Pin=TL084-6
+Added Pin To Net: NetName=AD1 Pin=TL084-7
+Added Pin To Net: NetName=GND Pin=TL084-11
+Added Pin To Net: NetName=I+2.5 Pin=corriente?-1
+Added Pin To Net: NetName=I+2.5 Pin=TL084-10
+Added Net: Name=I+2.5
+Added Pin To Net: NetName=measIOk Pin=R1-1
+Added Pin To Net: NetName=measIOk Pin=TL084-13
+Added Pin To Net: NetName=measIOk Pin=TL084-14
+Added Net: Name=measIOk
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=R1-2
+Added Pin To Net: NetName=NetC1_1 Pin=R2-1
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=NetC2_1 Pin=R2-2
+Added Pin To Net: NetName=NetC2_1 Pin=TL084-3
+Added Net: Name=NetC2_1
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=NetC3_1 Pin=R3-2
+Added Pin To Net: NetName=NetC3_1 Pin=R4-1
+Added Net: Name=NetC3_1
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=R4-2
+Added Pin To Net: NetName=NetC4_2 Pin=TL084-5
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=Netcorriente?_2 Pin=corriente?-2
+Added Pin To Net: NetName=Netcorriente?_2 Pin=R11-1
+Added Pin To Net: NetName=Netcorriente?_2 Pin=R12-2
+Added Net: Name=Netcorriente?_2
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=R6-2
+Added Pin To Net: NetName=NetR5_1 Pin=TL084-9
+Added Net: Name=NetR5_1
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=TL084-8
+Added Pin To Net: NetName=NetR5_2 Pin=TL084-12
+Added Net: Name=NetR5_2
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=NetR7_2 Pin=trafo?-1
+Added Net: Name=NetR7_2
+Added Pin To Net: NetName=NetR8_1 Pin=R8-1
+Added Pin To Net: NetName=NetR8_1 Pin=R9-1
+Added Pin To Net: NetName=NetR8_1 Pin=R10-2
+Added Pin To Net: NetName=NetR8_1 Pin=trafo?-2
+Added Net: Name=NetR8_1
+Added Pin To Net: NetName=V+2.5 Pin=R3-1
+Added Pin To Net: NetName=V+2.5 Pin=R7-1
+Added Pin To Net: NetName=V+2.5 Pin=R8-2
+Added Net: Name=V+2.5
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C1 220n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C2 22n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C3 220n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C4 22n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C5 100n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component corriente? corriente
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R1 1.2k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R2 18k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R3 1.2k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R4 18k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R5 1.5k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R6 1k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R7 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R8 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R9 100k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R10 100k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R11 100k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R12 100k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component TL084 IC_DIP14
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component trafo? trafo
+Added Room: Name=AdruinoMegaSheild

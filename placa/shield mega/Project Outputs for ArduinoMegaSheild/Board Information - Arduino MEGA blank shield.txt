@@ -1,0 +1,150 @@
+Board Information Report
+Filename     : C:\Users\Matias Pierdominici\Desktop\power-quality-analyzer-\placa\shield mega\Arduino MEGA blank shield.pcbdoc
+Date         : 1/1/2020
+Time         : 12:34:50 PM
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 101.6mmx53.34mm
+    Components on board, 27
+count : 2
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 47
+    Connections routed, 47
+    Connections remaining, 0
+count : 4
+
+Layer, Arcs, Pads, Vias, Tracks, Texts, Fills, Regions, ComponentBodies
+    Top Layer, 0, 0, 0, 32, 0, 0, 0, 0
+    Bottom Layer, 0, 0, 0, 119, 0, 0, 0, 0
+    Mechanical 1, 6, 0, 0, 9, 0, 0, 0, 27
+    Top Overlay, 9, 0, 0, 168, 136, 0, 0, 0
+    Bottom Overlay, 0, 0, 0, 0, 0, 0, 0, 0
+    Top Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Top Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Guide, 0, 0, 0, 0, 0, 0, 0, 0
+    Keep-Out Layer, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Drawing, 0, 0, 0, 0, 0, 0, 0, 0
+    Multi-Layer, 0, 144, 0, 0, 0, 0, 1, 0
+count : 13
+
+Drill Pairs, Vias
+count : 0
+
+Non-Plated Hole Size, Pads, Vias
+count : 0
+
+Plated Hole Size, Pads, Vias
+    0.762mm, 82, 0
+    0.8128mm, 46, 0
+    0.9mm, 6, 0
+    1.3mm, 4, 0
+    3.2mm, 6, 0
+count : 5
+
+Non-Plated Slot Size / Length, Pads
+count : 0
+
+Plated Slot Size / Length, Pads
+count : 0
+
+Non-Plated Square Hole Size, Pads
+count : 0
+
+Plated Square Hole Size, Pads
+count : 0
+
+Top Layer Annular Ring Size, Count
+    -1.6mm, 6
+    0.762mm, 128
+    0.878mm, 6
+    2.45mm, 4
+count : 4
+
+Mid Layer Annular Ring Size, Count
+    -1.6mm, 6
+    0.762mm, 128
+    0.878mm, 6
+    2.45mm, 4
+count : 4
+
+Bottom Layer Annular Ring Size, Count
+    -1.6mm, 6
+    0.762mm, 128
+    0.878mm, 6
+    2.45mm, 4
+count : 4
+
+Pad Solder Mask, Count
+    0.1016mm, 144
+count : 1
+
+Pad Paste Mask, Count
+    0mm, 144
+count : 1
+
+Pad Pwr/Gnd Expansion, Count
+    0.508mm, 144
+count : 1
+
+Pad Relief Conductor Width, Count
+    0.254mm, 144
+count : 1
+
+Pad Relief Air Gap, Count
+    0.254mm, 144
+count : 1
+
+Pad Relief Entries, Count
+    4, 144
+count : 1
+
+Via Solder Mask, Count
+count : 0
+
+Track Width, Count
+    0.127mm, 9
+    0.2mm, 92
+    0.2032mm, 5
+    0.254mm, 71
+    0.9mm, 151
+count : 5
+
+Arc Line Width, Count
+    0.127mm, 6
+    0.2mm, 8
+    0.2032mm, 1
+count : 3
+
+Arc Radius, Count
+    0.635mm, 1
+    1.27mm, 8
+    1.5999mm, 6
+count : 3
+
+Arc Degrees, Count
+    180, 9
+    360, 6
+count : 2
+
+Text Height, Count
+    0.508mm, 82
+    1.524mm, 54
+count : 2
+
+Text Width, Count
+    0.127mm, 82
+    0.254mm, 54
+count : 2
+
+Net Track Width, Count
+    0.9mm, 91
+count : 1
+
+Net Via Size, Count
+    1.27mm, 91
+count : 1
