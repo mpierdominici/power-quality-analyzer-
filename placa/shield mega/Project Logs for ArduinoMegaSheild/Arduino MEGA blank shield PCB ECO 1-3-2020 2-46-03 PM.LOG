@@ -1,0 +1,114 @@
+Added Component: Designator=C1(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C2(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C3(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C4(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=D1(DO41)
+Add component. Clean all parameters for all variants
+Added Component: Designator=D2(DO41)
+Add component. Clean all parameters for all variants
+Added Component: Designator=D3(DO41)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J1(MOLEX2)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J2(MOLEX2)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R5(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R6(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R7(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U1(*DIP254P762X510-14)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TL084CN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "DIP-14 STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TL084CN/STMicroelectronics/view-part/1137005/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=AD0 Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=AD1 Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=GND Pin=D3-2
+Added Pin To Net: NetName=5V Pin=R1-2
+Added Pin To Net: NetName=NetC1_1 Pin=R2-2
+Added Pin To Net: NetName=NetC1_1 Pin=R3-1
+Added Pin To Net: NetName=NetC3_1 Pin=R4-2
+Added Pin To Net: NetName=NetC3_1 Pin=R5-1
+Added Pin To Net: NetName=NetC4_2 Pin=R5-2
+Added Pin To Net: NetName=AD0 Pin=U1-1
+Added Pin To Net: NetName=AD0 Pin=U1-2
+Added Pin To Net: NetName=5V Pin=U1-4
+Added Pin To Net: NetName=NetC4_2 Pin=U1-5
+Added Pin To Net: NetName=AD1 Pin=U1-6
+Added Pin To Net: NetName=AD1 Pin=U1-7
+Added Pin To Net: NetName=GND Pin=U1-11
+Added Pin To Net: NetName=GND Pin=U1-12
+Added Pin To Net: NetName=2.8v Pin=D1-1
+Added Pin To Net: NetName=2.8v Pin=J1-2
+Added Pin To Net: NetName=2.8v Pin=J2-2
+Added Pin To Net: NetName=2.8v Pin=R1-1
+Added Pin To Net: NetName=2.8v Pin=R6-1
+Added Net: Name=2.8v
+Added Pin To Net: NetName=bufferVOffes Pin=R6-2
+Added Pin To Net: NetName=bufferVOffes Pin=R7-1
+Added Pin To Net: NetName=bufferVOffes Pin=U1-10
+Added Net: Name=bufferVOffes
+Added Pin To Net: NetName=i+2.8 Pin=J1-1
+Added Pin To Net: NetName=i+2.8 Pin=R2-1
+Added Net: Name=i+2.8
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R3-2
+Added Pin To Net: NetName=NetC2_2 Pin=U1-3
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=NetD1_2 Pin=D2-1
+Added Net: Name=NetD1_2
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Pin To Net: NetName=NetD2_2 Pin=D3-1
+Added Net: Name=NetD2_2
+Added Pin To Net: NetName=NetJ2_1 Pin=J2-1
+Added Pin To Net: NetName=NetJ2_1 Pin=R7-2
+Added Net: Name=NetJ2_1
+Added Pin To Net: NetName=NetU1_13 Pin=U1-13
+Added Pin To Net: NetName=NetU1_13 Pin=U1-14
+Added Net: Name=NetU1_13
+Added Pin To Net: NetName=v+2.8 Pin=R4-1
+Added Pin To Net: NetName=v+2.8 Pin=U1-8
+Added Pin To Net: NetName=v+2.8 Pin=U1-9
+Added Net: Name=v+2.8
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C1 220n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C2 22n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C3 220n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component C4 22n
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D1 1n4007
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D2 1n4007
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D3 1n4007
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component J1 corriente
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component J2 tension
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R1 680
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R2 1.2k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R3 18k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R4 1.2k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R5 18k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R6 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R7 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component U1 TL084CN
+Added Room: Name=AdruinoMegaSheild

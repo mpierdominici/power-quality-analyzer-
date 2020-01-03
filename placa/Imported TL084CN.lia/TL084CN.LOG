@@ -1,0 +1,28 @@
+PCAD Importer Log
+Project : TL084CN.LibPkg
+
+Section : C:\Users\Matias Pierdominici\Desktop\power-quality-analyzer-\placa\TL084CN.lia
+    Section : PCB Library - TL084CN.PcbLib
+        Section : Load Messages
+            Warning - 1 : Skipping Token TL084CN On Line 259
+            Warning - 1 : Skipping Token attachedSymbol On Line 426
+        EndSection
+
+        Section : Import Messages
+        EndSection
+    EndSection
+
+    Section : SCH Library - TL084CN.SchLib
+        Section : Parsing Messages
+            Warning - 1 : Skipping Token padStyleDef On Line 9
+            Warning - 1 : Skipping Token padStyleDef On Line 21
+            Warning - 1 : Skipping Token multiLayer On Line 96
+            Warning - 1 : Skipping Token layerContents On Line 112
+            Warning - 1 : Skipping Token layerContents On Line 123
+            Warning - 1 : Skipping Token layerContents On Line 190
+        EndSection
+
+        Section : Generating SCH Library - TL084CN.SchLib
+        EndSection
+    EndSection
+EndSection
