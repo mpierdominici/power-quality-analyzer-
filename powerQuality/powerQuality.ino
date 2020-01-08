@@ -4,19 +4,26 @@
 //el sampleo esta razonablemente bien, lo probe con matlab y una senal de 2.5 k estubo bien.
 #define SAMPLES_AMAUNT  512
 #define RMS_PERIOD 102
+#define BIN2_SEND 10 //lacantidad de armonicos a enviar
 
+volatile double voltageBin[1+(BIN2_SEND/2)];
 
 
 #define PIN_LR 24
 #define PIN_LA 26
 #define PIN_LV 28
+
+
+void procesamientoMediciones(void);
+
+
 arduinoFFT FFT = arduinoFFT();
 //fyente https://github.com/kosme/arduinoFFT
 const byte adcPin = 0;  // A0
 
 volatile double voltage [SAMPLES_AMAUNT];
 volatile double current [SAMPLES_AMAUNT];
-//volatile double img [SAMPLES_AMAUNT];
+
 volatile unsigned int resultNumber;
 //fuente: https://blog.wildan.us/2017/11/03/arduino-fast-er-sampling-rate/
 // ADC complete ISR
@@ -59,26 +66,109 @@ void setup ()
   ADCSRB  = bit (ADTS0) | bit (ADTS2);  // Timer/Counter1 Compare Match B
   ADCSRA |= bit (ADATE);   // turn on automatic triggering
 }
-
+  double irms=0;//variable para almcanera la corriente rms
+  double vrms=0;//variable para almacenara la tension rms
+  double pinst=0;//potencia activa
+  double pact=0;//potencia aparente
+  double pf=0;//factor de potencia
 void loop () {
-  double irms=0;
-  double vrms=0;
-  double pinst=0;
-   double img [SAMPLES_AMAUNT];
-   digitalWrite(PIN_LR,HIGH);
+  String commandRecived;
+  
+  if(Serial.available()){
+     commandRecived=Serial.readString();
+    if(commandRecived.indexOf("medir")>=0){
+      
+      digitalWrite(PIN_LR,HIGH);
+      digitalWrite(PIN_LV,LOW);
+      resultNumber=0;
+      ADCSRA =  bit (ADEN) | bit (ADIE) | bit (ADIF)| bit (ADPS2) | bit (ADATE); // turn ADC ON
+      procesamientoMediciones();
+      digitalWrite(PIN_LR,LOW);
+      digitalWrite(PIN_LV,HIGH);
+    }
+    if(commandRecived.indexOf("getF")>=0){
+      digitalWrite(PIN_LA,HIGH);
+        Serial.print("Tension rms: ");
+        Serial.print(vrms);
+        Serial.println("V");
+      
+        Serial.print("Corriente rms: ");
+        Serial.print(irms);
+        Serial.println("A");
+      
+        Serial.print("Potencia aparente: ");
+        Serial.print(pact);
+        Serial.println("VA");
+      
+        Serial.print("Potencia activa: ");
+        Serial.print(pinst);
+        Serial.println("W");
+      
+        Serial.print("Factor de potencia: ");
+        Serial.print(pf);
+        Serial.println("");
+      
+        Serial.println("");
+        Serial.println("");
+        Serial.println("");
+        Serial.println("");
+        Serial.println("");
+        Serial.println("");
+        digitalWrite(PIN_LA,LOW);
+      
+    } else if(commandRecived.indexOf("get")>=0){
+      digitalWrite(PIN_LA,HIGH);
+      Serial.println(vrms);
+      Serial.println(irms);
+      Serial.println(pact);
+      Serial.println(pinst);
+      Serial.println(pf);  
+      digitalWrite(PIN_LA,LOW);
+    } else if(commandRecived.indexOf("CA")>=0){
+      for(int i=1;i<=BIN2_SEND;i++){
+        Serial.println(max(current[5*i],current[(5*i)-1]));
+      }
+    }else if(commandRecived.indexOf("VA")>=0){
+      for(int i=1;i<=BIN2_SEND;i++){
+        Serial.println(max(voltage[5*i],voltage[(5*i)-1]));
+      }
+    }else if(commandRecived.indexOf("all")>=0){
+      for (int i = 0; i < SAMPLES_AMAUNT; i++)
+  {
+    Serial.print(voltage[i]);
+    Serial.print(" ");
+    Serial.println(current[i]);
+    //Serial.println (i+0.1);
+  }
+    }else if(commandRecived.indexOf("PA")>=0){
+      for(int i=0;i<=(BIN2_SEND/2);i++){
+       //Serial.println(powerBIN[i]);
+      }      
+    }
+    
+  }
+
+
+ 
+  
+ 
+}
+
+void procesamientoMediciones(void){
+
+  double img [SAMPLES_AMAUNT];
+  
+  irms=0;
   
   for (int i = 0; i < SAMPLES_AMAUNT; i++)
-  {
-    
+  { 
     img[i]=0;
   }
   while (resultNumber < 2*SAMPLES_AMAUNT) { }//sampleo de dos canales
-  for (int i = 0; i < SAMPLES_AMAUNT; i++)
+  for (int i = 0; i < SAMPLES_AMAUNT; i++)//adecuo las mediciones del adc a los valores reales
   {
     voltage[i]=(voltage[i]-CERO_MEAS)*(5.0/1023.0)*(282.84);
-     //Serial.println(voltage[i]);
     current[i]=(current[i]-CERO_MEAS)*(5.0/1023.0)*(50/3.0);
-    
   }
   for (int i = 0; i < RMS_PERIOD; i++)
   {
@@ -86,16 +176,18 @@ void loop () {
     vrms= vrms + (voltage[i]* voltage[i]);
     irms= irms +(current[i] * current[i]);
   }
+  
   vrms=vrms/RMS_PERIOD;
   irms=irms/RMS_PERIOD;
   pinst=pinst/RMS_PERIOD;
   
   vrms=sqrt(vrms);
   irms=sqrt(irms);
+
   
-  Serial.println(vrms);
-  Serial.println(irms);
-  Serial.println(pinst);
+  pact=vrms*irms;
+
+  pf=pinst/pact;
   
   FFT.Windowing(voltage, SAMPLES_AMAUNT, FFT_WIN_TYP_HAMMING, FFT_FORWARD);//fft para la tension
   FFT.Compute(voltage, img, SAMPLES_AMAUNT, FFT_FORWARD);
@@ -105,22 +197,15 @@ void loop () {
   {
     img[i]=0;
   }
+  
   FFT.Windowing(current, SAMPLES_AMAUNT, FFT_WIN_TYP_HAMMING, FFT_FORWARD);//fft para la corriente
   FFT.Compute(current, img, SAMPLES_AMAUNT, FFT_FORWARD);
   FFT.ComplexToMagnitude(current, img, SAMPLES_AMAUNT);
-  
-  
-  for (int i = 0; i < SAMPLES_AMAUNT; i++)
-  {
-    Serial.print(voltage[i]);
-    Serial.print(" ");
-    Serial.println(current[i]);
-    //Serial.println (i+0.1);
-  }
 
-  digitalWrite(PIN_LR,LOW);
- // digitalWrite(PIN_AMARILLO,HIGH);
- while(1);
+
   
- 
+  
+
+
+  
 }

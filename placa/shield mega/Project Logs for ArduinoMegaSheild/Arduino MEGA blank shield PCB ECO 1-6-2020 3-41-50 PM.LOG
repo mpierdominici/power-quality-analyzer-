@@ -1,0 +1,35 @@
+Added Component: Designator=D4(LED5)
+Add component. Clean all parameters for all variants
+Added Component: Designator=D5(LED5)
+Add component. Clean all parameters for all variants
+Added Component: Designator=D6(LED5)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R8(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R9(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R10(RES400)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=IO22 Pin=D4-1
+Added Pin To Net: NetName=IO24 Pin=D5-1
+Added Pin To Net: NetName=IO26 Pin=D6-1
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=GND Pin=R9-1
+Added Pin To Net: NetName=GND Pin=R10-1
+Added Pin To Net: NetName=NetD4_2 Pin=D4-2
+Added Pin To Net: NetName=NetD4_2 Pin=R10-2
+Added Net: Name=NetD4_2
+Added Pin To Net: NetName=NetD5_2 Pin=D5-2
+Added Pin To Net: NetName=NetD5_2 Pin=R9-2
+Added Net: Name=NetD5_2
+Added Pin To Net: NetName=NetD6_2 Pin=D6-2
+Added Pin To Net: NetName=NetD6_2 Pin=R8-2
+Added Net: Name=NetD6_2
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D4 LED
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D5 LED
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component D6 LED
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R4 1.2k
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R8 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R9 RES
+Added Member To Class: ClassName=AdruinoMegaSheild Member=Component R10 RES
+Added Room: Name=AdruinoMegaSheild
