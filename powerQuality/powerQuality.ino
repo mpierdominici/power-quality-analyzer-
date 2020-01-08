@@ -48,6 +48,7 @@ void setup ()
   pinMode(PIN_LA,OUTPUT);
   pinMode(PIN_LV,OUTPUT);
   Serial.begin(115200); // set baudrate
+  Serial3.begin(9600);
   Serial.println();
 
   pinMode(PIN_TEST,OUTPUT);
@@ -74,9 +75,9 @@ void setup ()
 void loop () {
   String commandRecived;
   
-  if(Serial.available()){
-     commandRecived=Serial.readString();
-    if(commandRecived.indexOf("medir")>=0){
+  if(Serial3.available()){
+     commandRecived=Serial3.readString();
+    if(commandRecived.indexOf("med")>=0){
       
       digitalWrite(PIN_LR,HIGH);
       digitalWrite(PIN_LV,LOW);
@@ -118,32 +119,44 @@ void loop () {
       
     } else if(commandRecived.indexOf("get")>=0){
       digitalWrite(PIN_LA,HIGH);
-      Serial.println(vrms);
-      Serial.println(irms);
-      Serial.println(pact);
-      Serial.println(pinst);
-      Serial.println(pf);  
+      Serial3.println(vrms);
+      Serial3.println(irms);
+      Serial3.println(pact);
+      Serial3.println(pinst);
+      Serial3.println(pf);  
       digitalWrite(PIN_LA,LOW);
     } else if(commandRecived.indexOf("CA")>=0){
       for(int i=1;i<=BIN2_SEND;i++){
-        Serial.println(max(current[5*i],current[(5*i)-1]));
+        Serial3.println(max(current[5*i],current[(5*i)-1]));
       }
     }else if(commandRecived.indexOf("VA")>=0){
       for(int i=1;i<=BIN2_SEND;i++){
-        Serial.println(max(voltage[5*i],voltage[(5*i)-1]));
+        Serial3.println(max(voltage[5*i],voltage[(5*i)-1]));
       }
     }else if(commandRecived.indexOf("all")>=0){
       for (int i = 0; i < SAMPLES_AMAUNT; i++)
   {
-    Serial.print(voltage[i]);
-    Serial.print(" ");
-    Serial.println(current[i]);
+    Serial3.print(voltage[i]);
+    Serial3.print(" ");
+    Serial3.println(current[i]);
     //Serial.println (i+0.1);
   }
     }else if(commandRecived.indexOf("PA")>=0){
       for(int i=0;i<=(BIN2_SEND/2);i++){
        //Serial.println(powerBIN[i]);
       }      
+    }else if(commandRecived.indexOf("i")>=0){
+
+      Serial3.println(irms);
+      
+    }else if(commandRecived.indexOf("v")>=0){
+      Serial3.println(vrms);
+      
+    }else if(commandRecived.indexOf("p")>=0){
+      Serial3.println(pinst);
+      
+    }else if(commandRecived.indexOf("f")>=0){
+      Serial3.println(pf);
     }
     
   }
