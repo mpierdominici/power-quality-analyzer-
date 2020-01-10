@@ -149,6 +149,14 @@ void loop() {
   Serial.println("f");
   temData=waitData();
   mqtt_client.publish("power/pf",temData.c_str());
+
+  Serial.println("VA");
+  temData=waitData();
+  mqtt_client.publish("power/thdV",temData.c_str());
+
+  Serial.println("CA");
+  temData=waitData();
+  mqtt_client.publish("power/thdI",temData.c_str());
   
   sendDataE=false;
  }

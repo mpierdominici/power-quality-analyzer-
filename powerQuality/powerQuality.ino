@@ -126,13 +126,19 @@ void loop () {
       Serial3.println(pf);  
       digitalWrite(PIN_LA,LOW);
     } else if(commandRecived.indexOf("CA")>=0){
-      for(int i=1;i<=BIN2_SEND;i++){
-        Serial3.println(max(current[5*i],current[(5*i)-1]));
+      double tempcthd=0;
+      for(int i=2;i<=BIN2_SEND;i++){
+        tempcthd+=max(current[5*i],current[(5*i)-1]);
+        //Serial3.println(max(current[5*i],current[(5*i)-1]));
       }
+      Serial3.println(tempcthd/max(current[5],current[(5)-1]));
     }else if(commandRecived.indexOf("VA")>=0){
-      for(int i=1;i<=BIN2_SEND;i++){
-        Serial3.println(max(voltage[5*i],voltage[(5*i)-1]));
+      double tempvthd=0;
+      for(int i=2;i<=BIN2_SEND;i++){
+        tempvthd+=max(voltage[5*i],voltage[(5*i)-1]);
+        //Serial3.println(max(voltage[5*i],voltage[(5*i)-1]));
       }
+      Serial3.println(tempvthd/max(voltage[5],voltage[(5)-1]));
     }else if(commandRecived.indexOf("all")>=0){
       for (int i = 0; i < SAMPLES_AMAUNT; i++)
   {
@@ -181,7 +187,8 @@ void procesamientoMediciones(void){
   for (int i = 0; i < SAMPLES_AMAUNT; i++)//adecuo las mediciones del adc a los valores reales
   {
     voltage[i]=(voltage[i]-CERO_MEAS)*(5.0/1023.0)*(282.84);
-    current[i]=(current[i]-CERO_MEAS)*(5.0/1023.0)*(50/3.0);
+    //current[i]=(current[i]-CERO_MEAS)*(5.0/1023.0)*(50/3.0);
+    current[i]=(current[i]-CERO_MEAS)*(5.0/1023.0)*50.0;
   }
   for (int i = 0; i < RMS_PERIOD; i++)
   {
